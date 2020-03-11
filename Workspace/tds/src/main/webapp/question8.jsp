@@ -1,0 +1,26 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8"%>
+    
+   
+
+<%  SimpleDateFormat date  = new SimpleDateFormat("dd/MMM/YYYY HH:mm:ss ZZZZ"); 
+out.print(request.getRemoteAddr() +"  [" + date.format(new Date())+"  ]"+"</br>");
+
+out.print("pour obtenir le code pays </br>");
+out.print(request.getLocale().getCountry()+ "</br>");
+
+out.print("pour obtenir nom protocole </br>");
+out.print(request.getProtocol() + "</br>");
+
+out.println("pour obtenir nom page demande </br> ");
+out.print(request.getRequestURI()+ "</br>");
+
+
+out.println("pour obtenir nom page demande et parametres </br> ");
+out.print(request.getRequestURI()+ "</br>");
+%>
+
+</body>
+</html>

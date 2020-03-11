@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page language="java" import ="compteur.Compteur"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ 
+<%
+// dure de vie page
+// Compteur compteur = new Compteur();
+// 	compteur.augmenter();
+// 	out.print(compteur.getCompteur());
+
+// dure de vie session
+Compteur compteur;
+if(session.getAttribute("compteur") == null){
+	compteur = new Compteur();
+	out.print(compteur.getCompteur());
+}else {
+	compteur = (Compteur) session.getAttribute("compteur");
+	compteur.augmenter();
+	out.print(compteur.getCompteur());
+	session.setAttribute("compteur",compteur);
+	
+}
+%>
+
+</body>
+</html>

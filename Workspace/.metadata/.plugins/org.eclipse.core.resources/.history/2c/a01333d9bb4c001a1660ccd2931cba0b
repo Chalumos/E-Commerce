@@ -1,0 +1,6 @@
+package compteur;
+
+public class Compteur {
+	int compteur ;
+
+}

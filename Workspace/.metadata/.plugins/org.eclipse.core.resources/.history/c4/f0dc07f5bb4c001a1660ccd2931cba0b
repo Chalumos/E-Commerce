@@ -1,0 +1,14 @@
+package compteur;
+
+public class Compteur {
+	private int compteur ;
+
+	public int getCompteur() {
+		return compteur;
+	}
+
+	public void setCompteur(int compteur) {
+		this.compteur = compteur;
+	}
+
+}
