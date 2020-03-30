@@ -16,6 +16,7 @@ import javax.persistence.DiscriminatorValue;
 public class Livre extends Article {
 	private String auteur;
 	private String ISBN;
+	private String Type = "Livre";
 	private int nbPages;
 	private String dateDeParution;
 
@@ -34,6 +35,17 @@ public class Livre extends Article {
 	public void setISBN(String inISBN) {
 		ISBN = inISBN;
 	}
+	
+	@Basic
+	public String getType() {
+		return Type;
+	}
+	
+	@Basic
+	public void setType(String Type) {
+		this.Type = Type;
+	}
+
 
 	@Basic
 	public int getNbPages() {

@@ -22,8 +22,13 @@
 <nav id="navigation" class="col-full" role="navigation">
 	<ul id="main-nav" class="nav fl">
 		<li id="menu-item-290"
-			class="menu-item menu-item-type-custom menu-item-object-custom">
-			<a href="<%=response.encodeURL("./enTetePage.html")%>">Categorie</a>
+		  class="select">
+		<select>
+<%-- 			<a href="<%=response.encodeURL("./Categorie.html")%>">Categorie</a> <select> --%>
+				<option>Article</option>
+				<option value="1">Livre</option>
+				<option value="2">Album</option>
+		</select>
 		</li>
 		<li id="menu-item-290"
 			class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item">

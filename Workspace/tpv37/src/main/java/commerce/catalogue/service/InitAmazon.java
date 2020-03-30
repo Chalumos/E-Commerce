@@ -44,6 +44,13 @@ public class InitAmazon {
 	}
 
 	public void init() {
+		
+		switch () {
+		
+		case ("livre") : 
+			this.initLivre();
+			break;
+		}
 		// Lien pour obtenir la clé d'accès et la clé secrète auprès d'Amazon.
 		// https://portal.aws.amazon.com/gp/aws/securityCredentials
 		/*
@@ -83,6 +90,7 @@ public class InitAmazon {
 		Document document ;
 		Element racine = null ;
 		Namespace espaceNom = null ;
+	
 
 		try {
 			document = builder.build(new StringReader(apaiIO.runOperation(search)));
@@ -169,36 +177,7 @@ public class InitAmazon {
 			}
 			else {
 				try { 
-					livre = new Livre();
-					livre.setRefArticle("1141555677821");
-					livre.setTitre("Le seigneur des anneaux");
-					livre.setAuteur("J.R.R. TOLKIEN");
-					livre.setISBN("2070612880");
-					livre.setImage("61PEbZ1QDfL-300x300.jpg");
-					livre.setNbPages(736);
-					livre.setPrix("8.50");
-					livre.setDisponibilite("1");
-					catalogueManager.soumettreArticle(livre);
-					livre = new Livre();
-					livre.setRefArticle("1141555897821");
-					livre.setTitre("Un paradis trompeur");
-					livre.setAuteur("Henning Mankell");
-					livre.setISBN("275784797X");
-					livre.setImage("61NfUluHsML-300x300.jpg");
-					livre.setNbPages(400);
-					livre.setPrix("7.90");
-					livre.setDisponibilite("1");
-					catalogueManager.soumettreArticle(livre);
-					livre = new Livre();
-					livre.setRefArticle("1141556299459");
-					livre.setTitre("Dôme tome 1");
-					livre.setAuteur("Stephen King");
-					livre.setISBN("2212110685");
-					livre.setImage("61sGE8edJmL-300x300.jpg");
-					livre.setNbPages(840);
-					livre.setPrix("8.90");
-					livre.setDisponibilite("1");
-					catalogueManager.soumettreArticle(livre);
+
 				}
 				catch (Exception e) {
 					e.printStackTrace() ;
@@ -211,5 +190,26 @@ public class InitAmazon {
 		catch (IOException e) {
 			e.printStackTrace() ;
 		}
+	}
+
+	private void initLivre() {
+		
+		String ENDPOINT = "odp.tuxfamily.org";
+		String AWS_ACCESS_KEY_ID = "YOUR_ACCESS_KEY_ID_HERE";
+		String AWS_SECRET_KEY = "YOUR_SECRET_KEY_HERE";
+
+		GenericConfiguration conf = new GenericConfiguration();
+		conf.setAccessKey(AWS_ACCESS_KEY_ID) ;
+		conf.setSecretKey(AWS_SECRET_KEY);
+		conf.setEndPoint(ENDPOINT);
+		
+		ApaiIO apaiIO = new ApaiIO();
+		apaiIO.setConfiguration(conf) ;
+		Search search = new Search();
+		search.setCategory("Music");
+		search.setResponseGroup("Offers,ItemAttributes,Images") ;
+		String keywords = "Ibrahim Maalouf" ;
+		search.setKeywords(keywords);
+		
 	}
 }
